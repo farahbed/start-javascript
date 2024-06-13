@@ -16,3 +16,63 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+console.log(slides)
+
+// Gestion du carrousel
+
+const flechegauche = document.querySelector(".arrow_left")
+const flechedroite = document.querySelector(".arrow_right")
+const dots = document.querySelectorAll(".dot")
+
+let currentIndex = 0
+
+// les fleches 
+flechegauche.addEventListener("click", previousSlide)
+flechedroite.addEventListener("click", nextSlide)
+
+console.log(flechegauche, flechedroite)
+
+// les points
+	dots.forEach((dot, index) => {
+		dot.addEventListener("click", function() {
+			currentIndex = index
+			displaySlides()
+		})
+	})
+
+
+// les fonctions fleches
+function nextSlide() { 
+currentIndex++
+if (currentIndex > slides.length - 1) {
+	currentIndex = 0
+}
+console.log('valeur de currentIndex :' + currentIndex)
+displaySlides()
+}
+
+function previousSlide() { 
+	currentIndex--
+	if (currentIndex < 0) {
+		currentIndex = slides.length - 1
+	}
+	console.log('valeur de currentIndex :' + currentIndex)
+	displaySlides()
+}
+//les slides 
+function displaySlides() {
+	const bannerImg = document.querySelector(".banner-img")
+	const bannerTagline = document.querySelector("#banner p")
+
+	bannerImg.src = "assets/images/slideshow/" + slides[currentIndex].image
+	bannerTagline.innerHTML = slides[currentIndex].tagLine
+
+	dots.forEach((dot, index) => {
+		if (index === currentIndex) {
+			dot.classList.add("dot_selected")
+		} else {
+			dot.classList.remove("dot_selected")
+		}
+	})
+}
+console.log(displaySlides())
