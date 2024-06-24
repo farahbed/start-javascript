@@ -1,0 +1,14 @@
+# Ignorer les fichiers de configuration spécifiques à l'IDE
+.vscode/
+.idea/
+
+# Ignorer les fichiers de build générés par des outils
+build/
+dist/
+
+# Ignorer les fichiers sensibles contenant des clés d'API
+secrets.json
+.env
+
+# Ignorer les fichiers log
+*.log
