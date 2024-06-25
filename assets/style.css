@@ -127,15 +127,16 @@ header {
 
 }
 #banner .arrow_left {
-	
-	position: absolute;
-	top: 0;
-	right: 40em;
+	/*Mettre une image de fleche en CSS*/
+	position: fixed;
+	top: 300px;
+	left: 1%;
 }
 #banner .arrow_right {
-	position: absolute;
-	top: 0;
-	left: 40em;
+	/*Mettre une image de fleche en CSS*/
+	position: fixed;
+	top: 300px;
+	right: 1%;
 }
 /* Gestion des points du carrousel */
 .dots {

@@ -18,7 +18,7 @@ const slides = [
 ]
 console.log(slides)
 
-// Gestion du carrousel
+// selection des elements html
 
 const flechegauche = document.querySelector(".arrow_left")
 const flechedroite = document.querySelector(".arrow_right")
@@ -26,7 +26,8 @@ const dots = document.querySelectorAll(".dot")
 
 let currentIndex = 0
 
-// les fleches 
+// les fleches EVENTLISTENERS
+
 flechegauche.addEventListener("click", previousSlide)
 flechedroite.addEventListener("click", nextSlide)
 
@@ -41,7 +42,7 @@ console.log(flechegauche, flechedroite)
 	})
 
 
-// les fonctions fleches
+// NAVIGATION FUNCTION
 function nextSlide() { 
 currentIndex++
 if (currentIndex > slides.length - 1) {
@@ -59,13 +60,15 @@ function previousSlide() {
 	console.log('valeur de currentIndex :' + currentIndex)
 	displaySlides()
 }
-//les slides 
+// DISPLAY FUNCTION (DISPLAY SLIDES)
 function displaySlides() {
 	const bannerImg = document.querySelector(".banner-img")
 	const bannerTagline = document.querySelector("#banner p")
 
 	bannerImg.src = "assets/images/slideshow/" + slides[currentIndex].image
 	bannerTagline.innerHTML = slides[currentIndex].tagLine
+
+	// GESTION DES POINTS ETAT VISUELS
 
 	dots.forEach((dot, index) => {
 		if (index === currentIndex) {
